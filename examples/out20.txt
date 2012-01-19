@@ -1,0 +1,27 @@
+Success!
+Schemes(2):
+  employee(N,I,A,J)
+  WhoToBlame(N,J)
+Facts(4):
+  employee('Dilbert','51','10 Main','EE').
+  employee('Dilbert','51','10 Main','Marketing').
+  employee('Dogbert','52','10 Main','EE').
+  employee('PHB','53','Hades','Pain Management').
+Rules(2):
+  WhoToBlame(N,J) :- employee(N,'51',A,J),expr((A+A)).
+  WhoToBlame(N,I) :- NotEquals(!=('Dilbert','PHB')).
+Queries(2):
+  WhoToBlame('Dilbert',J)?
+  WhoToBlame(N,'EE')?
+Domain(11):
+  '10 Main'
+  '51'
+  '52'
+  '53'
+  'Dilbert'
+  'Dogbert'
+  'EE'
+  'Hades'
+  'Marketing'
+  'PHB'
+  'Pain Management'

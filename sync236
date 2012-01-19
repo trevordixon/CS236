@@ -1,0 +1,1 @@
+rsync -r ~/Documents/CS236/* tdixon2@schizo.cs.byu.edu:~/CS236
