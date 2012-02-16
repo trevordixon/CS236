@@ -47,6 +47,9 @@ public class LexicalAnalyzer implements Iterable<Token> {
         }
 
         emit(TokenType.EOF);
+        
+        thisIter = this.iterator();
+        advance();
     }
 
     /**
@@ -90,6 +93,17 @@ public class LexicalAnalyzer implements Iterable<Token> {
         return tokenList.iterator();
     }
 
+    private Iterator<Token> thisIter;
+    private Token currentToken;
+    
+    public Token currentToken() {
+    	return currentToken;
+    }
+    
+    public void advance() {
+    	currentToken = thisIter.next();
+    }
+    
     public String toString() {
         StringBuilder output = new StringBuilder();
         for (Token token: this) {
