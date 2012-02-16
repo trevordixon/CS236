@@ -10,7 +10,6 @@ public class FactList {
 	
 	public FactList(LexicalAnalyzer lex) throws ParseException {
 		facts = new ArrayList<Fact>();
-		facts.add(new Fact(lex));
 		
 		while (lex.currentToken().getTokenType() == TokenType.ID) {
 			facts.add(new Fact(lex));

@@ -10,7 +10,6 @@ public class RuleList {
 	
 	public RuleList(LexicalAnalyzer lex) throws ParseException {
 		rules = new ArrayList<Rule>();
-		rules.add(new Rule(lex));
 		
 		while (Check.tokenTypeBool(lex, TokenType.ID)) {
 			rules.add(new Rule(lex));

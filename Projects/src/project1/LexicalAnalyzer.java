@@ -101,7 +101,9 @@ public class LexicalAnalyzer implements Iterable<Token> {
     }
     
     public void advance() {
-    	currentToken = thisIter.next();
+    	do {
+    		currentToken = thisIter.next();
+    	} while (currentToken.type == TokenType.COMMENT);
     }
     
     public String toString() {

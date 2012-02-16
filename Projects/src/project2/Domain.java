@@ -27,7 +27,7 @@ public class Domain {
 		
 		for (String string : strings) {
 			if (!str.isEmpty()) str += "\n";
-			str += string;
+			str += "  " + string;
 		}
 		
 		return str;
