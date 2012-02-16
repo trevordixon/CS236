@@ -78,6 +78,9 @@ enum State {
     		TokenType tokenType = null;
     		if (c == '|') {
     			nextState = MULTI_LINE_COMMENT;
+    		} else if (c == '\n' || c == '\r') {
+    			nextState = whatWouldStartDo(c);
+    			tokenType = TokenType.COMMENT;
     		} else {
     			nextState = SINGLE_LINE_COMMENT;
     		}
