@@ -129,9 +129,11 @@ public class RuleList
     public boolean canProve(Predicate predicate)
         throws ParserException
     {
-System.out.println("Modify RuleList.canProve");
         assert predicate != null;
 
+        if (previouslySeenPredicates.contains(predicate)) return false;
+        else previouslySeenPredicates.add(predicate);
+        
         boolean result = false;
         Iterator<Node> iter = nodes.iterator();
         while(!result && iter.hasNext()){
@@ -139,6 +141,8 @@ System.out.println("Modify RuleList.canProve");
         	result = rule.prove(predicate);
         }
 
+        previouslySeenPredicates.remove(predicate);
+        
         return result;
     }
 

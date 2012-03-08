@@ -128,8 +128,19 @@ public class PredicateList
     protected boolean createAllCombinations(int i)
         throws ParserException
     {
-System.out.println("Implement PredicateList.createAllCombinations");
-		return true;
+    	if (i >= variables.length) return checkToSeeIfTrue();
+    	
+    	Iterator<Constant> iter = Domain.iterator();
+    	
+    	boolean gotTrue = false;
+    	while (iter.hasNext()) {
+			setVariableToValue(variables[i], iter.next());
+			boolean result = createAllCombinations(i + 1);
+			gotTrue = gotTrue || result;
+			if (!keepOnGoing(result)) break;
+    	}
+
+		return gotTrue;
     }
 
     /**
@@ -191,7 +202,16 @@ System.out.println("Implement PredicateList.createAllCombinations");
     protected boolean checkToSeeIfTrue()
         throws ParserException
     {
-System.out.println("Implement PredicateList.checkToSeeIfTrue");
+    	Iterator<Node> iter = iterator();
+    	while (iter.hasNext()) {
+    		Predicate p = (Predicate) iter.next();
+        	if (
+    			!Project3.datalogProgram.getFactList().canProve(p) &&
+    			!Project3.datalogProgram.getRuleList().canProve(p)
+			) return false;
+    	}
+    	
+    	saveResult();
 		return true;
     }
 
