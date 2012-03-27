@@ -7,8 +7,8 @@ import java.util.Iterator;
 import project1.*;
 
 public class Scheme {
-	String name;
-	ArrayList<Token> attributes;
+	public String name;
+	public ArrayList<Token> attributes;
 	
 	public Scheme(LexicalAnalyzer lex) throws ParseException {
 		attributes = new ArrayList<Token>();

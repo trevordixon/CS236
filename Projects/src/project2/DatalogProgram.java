@@ -4,11 +4,11 @@ package project2;
 import project1.*;
 
 public class DatalogProgram {
-	private SchemeList schemeList;
-	private FactList factList;
-	private RuleList ruleList;
-	private QueryList queryList;
-	private Domain domain;
+	public SchemeList schemeList;
+	public FactList factList;
+	public RuleList ruleList;
+	public QueryList queryList;
+	public Domain domain;
 	
 	public DatalogProgram(LexicalAnalyzer lex) throws ParseException {
 		// Schemes

@@ -7,8 +7,8 @@ import java.util.Iterator;
 import project1.*;
 
 public class Fact {
-	String name;
-	ArrayList<Token> facts;
+	public String name;
+	public ArrayList<Token> facts;
 	
 	public Fact(LexicalAnalyzer lex) throws ParseException {
 		facts = new ArrayList<Token>();

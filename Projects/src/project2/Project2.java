@@ -14,7 +14,7 @@ import project1.TokenType;
 public class Project2
 {
 	public static void main(String[] args) {
-		String[] _args = {"/home/tdixon/Documents/CS236/examples/ex20.txt"};
+		String[] _args = {"/users/guest/t/tdixon2/CS236/examples/ex20.txt"};
 		System.out.print(body(_args));
 	}
 	

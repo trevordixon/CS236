@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import project1.*;
 
 public class QueryList {
-	private ArrayList<SimplePredicate> queries;
+	private ArrayList<Query> queries;
 	
 	public QueryList(LexicalAnalyzer lex) throws ParseException {
-		queries = new ArrayList<SimplePredicate>();
+		queries = new ArrayList<Query>();
 		
 		do {
-			queries.add(new SimplePredicate(lex));
+			queries.add(new Query(lex));
 			Check.tokenType(lex, TokenType.Q_MARK);
 			lex.advance();
 		} while (Check.tokenTypeBool(lex, TokenType.ID));
