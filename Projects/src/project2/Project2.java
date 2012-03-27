@@ -40,7 +40,7 @@ public class Project2
 			str += "Success!\n";
 			str += datalogProgram.toString();
 		} catch (ParseException e) {
-			str += "Failure!\n  " + e.token.toString();
+			str += "Failure!\n  " + e.getToken().toString();
 		}
 		
 		return str;
