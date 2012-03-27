@@ -6,9 +6,9 @@ import project2.*;
 
 public class Database {
 	public Database(DatalogProgram dl) {
-		
+
 	}
-	
+
 	public String toString() {
 		return "Implement me";
 	}
