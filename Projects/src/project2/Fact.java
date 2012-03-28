@@ -10,6 +10,11 @@ public class Fact {
 	public String name;
 	public ArrayList<Token> facts;
 	
+	public Fact(String name, ArrayList<Token> facts) {
+		this.name = name;
+		this.facts = facts;
+	}
+	
 	public Fact(LexicalAnalyzer lex) throws ParseException {
 		facts = new ArrayList<Token>();
 		
@@ -50,5 +55,13 @@ public class Fact {
 		str += ").\n";
 		
 		return str;
+	}
+	
+	public Fact clone() {
+		ArrayList<Token> _facts = new ArrayList<Token>();
+		for (Token t : facts) {
+			_facts.add(t.clone());
+		}
+		return new Fact(new String(name), _facts);
 	}
 }

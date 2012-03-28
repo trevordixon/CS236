@@ -10,6 +10,11 @@ public class Scheme {
 	public String name;
 	public ArrayList<Token> attributes;
 	
+	public Scheme(String name, ArrayList<Token> attributes) {
+		this.name = name;
+		this.attributes = attributes;
+	}
+	
 	public Scheme(LexicalAnalyzer lex) throws ParseException {
 		attributes = new ArrayList<Token>();
 		
@@ -48,5 +53,13 @@ public class Scheme {
 		str += ")\n";
 		
 		return str;
+	}
+	
+	public Scheme clone() {
+		ArrayList<Token> _attributes = new ArrayList<Token>();
+		for (Token t : attributes) {
+			_attributes.add(t.clone());
+		}
+		return new Scheme(new String(name), _attributes);
 	}
 }

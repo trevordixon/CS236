@@ -22,6 +22,10 @@ public class Token {
     }
 
     public String toString() {
+    	return value;
+    }
+    
+    public String toString_old() {
         Formatter f = new Formatter();
         f.format("(%s,\"%s\",%d)", type, value, lineNumber);
         //System.out.println(value.equals("#SchemesFactsRules\n"));
@@ -32,5 +36,9 @@ public class Token {
         }
         //System.out.println();
         return f.toString();
+    }
+    
+    public Token clone() {
+    	return new Token(type, new String(value), lineNumber);
     }
 }

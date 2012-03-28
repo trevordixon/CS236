@@ -24,4 +24,12 @@ public class Argument implements ParameterInterface {
 	public String toString() {
 		return argument.getValue();
 	}
+	
+	public TokenType getType() {
+		return argument.getTokenType();
+	}
+	
+	public String getValue() {
+		return argument.getValue();
+	}
 }

@@ -2,10 +2,11 @@
 package project2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import project1.*;
 
-public class QueryList {
+public class QueryList implements Iterable<Query> {
 	private ArrayList<Query> queries;
 	
 	public QueryList(LexicalAnalyzer lex) throws ParseException {
@@ -30,5 +31,10 @@ public class QueryList {
 		}
 		
 		return str;
+	}
+
+	@Override
+	public Iterator<Query> iterator() {
+		return queries.iterator();
 	}
 }

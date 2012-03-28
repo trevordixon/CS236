@@ -7,8 +7,8 @@ import java.util.Iterator;
 import project1.*;
 
 public class SimplePredicate {
-	String name;
-	ArgumentList arguments;
+	public String name;
+	public ArgumentList arguments;
 	
 	public SimplePredicate(LexicalAnalyzer lex) throws ParseException {
 		Check.tokenType(lex, TokenType.ID);

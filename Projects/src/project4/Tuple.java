@@ -7,9 +7,11 @@ import project1.*;
 import project2.*;
 
 public class Tuple implements Comparable<Tuple> {
-	List<Token> parameters = new ArrayList<Token>(); 
+	List<Token> parameters = new ArrayList<Token>();
+	Fact fact;
 	
 	public Tuple(Fact fact) {
+		this.fact = fact;
 		parameters = fact.facts;
 	}
 	
@@ -17,5 +19,9 @@ public class Tuple implements Comparable<Tuple> {
 	public int compareTo(Tuple t) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	public Tuple clone() {
+		return new Tuple(fact.clone());
 	}
 }
