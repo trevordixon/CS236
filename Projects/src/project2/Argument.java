@@ -4,7 +4,7 @@ import project1.LexicalAnalyzer;
 import project1.Token;
 import project1.TokenType;
 
-public class Argument implements ParameterInterface {
+public class Argument implements ParameterInterface, Comparable<Argument> {
 	Token argument;
 	
 	public Argument (LexicalAnalyzer lex) throws ParseException {
@@ -31,5 +31,10 @@ public class Argument implements ParameterInterface {
 	
 	public String getValue() {
 		return argument.getValue();
+	}
+
+	@Override
+	public int compareTo(Argument a) {
+		return argument.getValue().compareTo(a.getValue());
 	}
 }
