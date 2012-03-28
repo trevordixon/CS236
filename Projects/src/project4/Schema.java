@@ -12,4 +12,8 @@ public class Schema {
 	public Schema(Scheme scheme) {
 		attributes = scheme.attributes;
 	}
+	
+	public void renameAttributes(ArgumentList arguments) {
+		// go through arguments, and if it's an identifier, change the corresponding one in attributes
+	}
 }

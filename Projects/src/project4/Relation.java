@@ -35,7 +35,7 @@ public class Relation {
 	public Relation rename(ArgumentList arguments) {
 		Relation r = this.clone();
 		
-		
+		schema.renameAttributes(arguments);
 		
 		return r;
 	}
