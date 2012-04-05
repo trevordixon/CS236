@@ -4,8 +4,8 @@ package project2;
 import project1.*;
 
 public class Rule {
-	SimplePredicate simplePredicate;
-	PredicateList predicateList;
+	public SimplePredicate simplePredicate;
+	public PredicateList predicateList;
 	
 	public Rule(LexicalAnalyzer lex) throws ParseException {
 		simplePredicate = new SimplePredicate(lex);

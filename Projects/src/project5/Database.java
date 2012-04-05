@@ -21,7 +21,7 @@ public class Database {
 		}
 		
 		for (Rule rule : d.ruleList) {
-			
+			relations.get(rule.simplePredicate.name).addRule(rule);
 		}
 		
 		for (Query query : d.queryList) {

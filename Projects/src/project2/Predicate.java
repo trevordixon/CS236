@@ -1,9 +1,6 @@
 //REQUIRED CLASS
 package project2;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import project1.*;
 
 public class Predicate {
