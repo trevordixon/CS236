@@ -2,10 +2,11 @@
 package project2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import project1.*;
 
-public class RuleList {
+public class RuleList implements Iterable<Rule> {
 	private ArrayList<Rule> rules;
 	
 	public RuleList(LexicalAnalyzer lex) throws ParseException {
@@ -28,5 +29,10 @@ public class RuleList {
 		}
 		
 		return str;
+	}
+
+	@Override
+	public Iterator<Rule> iterator() {
+		return rules.listIterator();
 	}
 }
