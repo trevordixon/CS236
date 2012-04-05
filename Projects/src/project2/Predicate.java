@@ -4,7 +4,7 @@ package project2;
 import project1.*;
 
 public class Predicate {
-	String name;
+	public String name;
 	ParameterList parameters;
 	
 	public Predicate(LexicalAnalyzer lex) throws ParseException {
@@ -27,5 +27,9 @@ public class Predicate {
 		str += name + "(" + parameters.toString() + ")";
 		
 		return str;
+	}
+	
+	public Query toQuery() {
+		return new Query(name, parameters);
 	}
 }

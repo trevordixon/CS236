@@ -1,26 +1,26 @@
 package project5;
 
-import java.util.ArrayList;
-
 import project2.*;
 
 public class QueryResult {
 	Database db;
-	ArrayList<Relation> results = new ArrayList<Relation>();
+	public Relation results;
 	
 	public QueryResult(Database db, Query query) {
 		this.db = db;
-		Relation r = db.relations.get(query.name);
-		r = r.rename(query).select(query).project(query);
+		Relation r = db.relations.get(query.name).rename(query).select(query).project(query);
 		r.query = query;
-		results.add(r);
+		results = r;
+	}
+	
+	public QueryResult(Database db, SimplePredicate p) {
+		this.db = db;
+		Relation r = db.relations.get(p.name).rename(p).select(p).project(p);
+		r.query = p;
+		results = r;
 	}
 	
 	public String toString() {
-		String out = "";
-		for (Relation r : results) {
-			out += r.toString();
-		}
-		return out;
+		return results.toString();
 	}
 }

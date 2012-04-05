@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import project1.*;
 
-public class ParameterList {
+public class ParameterList implements Iterable<Parameter> {
 	ArrayList<Parameter> parameters;
 	
 	public ParameterList(LexicalAnalyzer lex) throws ParseException {
@@ -33,5 +33,10 @@ public class ParameterList {
 		}
 		
 		return str;
+	}
+
+	@Override
+	public Iterator<Parameter> iterator() {
+		return parameters.listIterator();
 	}
 }

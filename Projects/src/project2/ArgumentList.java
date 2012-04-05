@@ -20,6 +20,13 @@ public class ArgumentList implements Iterable<Argument> {
 		}
 	}
 	
+	public ArgumentList(ParameterList parameters) {
+		arguments = new ArrayList<Argument>();
+		for (Parameter p : parameters) {
+			//arguments.add(p);
+		}
+	}
+	
 	public String toString() {
 		String str = "";
 		

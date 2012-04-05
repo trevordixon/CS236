@@ -21,6 +21,11 @@ public class SimplePredicate {
 		lex.advance();
 	}
 	
+	public SimplePredicate(String name, ParameterList parameters) {
+		this.name = name;
+		arguments = new ArgumentList(parameters);
+	}
+	
 	public String toString() {
 		String str = "";
 		

@@ -5,7 +5,7 @@ import project1.*;
 
 public class Parameter
 {
-	ParameterInterface parameter;
+	public ParameterInterface parameter;
 	
 	public Parameter(LexicalAnalyzer lex) throws ParseException {
 		try {

@@ -17,7 +17,7 @@ public class Tuple implements Comparable<Tuple>, Iterable<Token> {
 		parameters = fact.facts;
 	}
 	
-	public boolean matches(Query query) {
+	public boolean matches(SimplePredicate query) {
 		Iterator<Token> tIter = parameters.iterator();
 		Iterator<Argument> qIter = query.arguments.iterator();
 		HashMap<String, String> vars = new HashMap<String, String>();

@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import project1.LexicalAnalyzer;
 import project2.DatalogProgram;
 import project2.ParseException;
-import project4.Database;
 
 public class Project5
 {

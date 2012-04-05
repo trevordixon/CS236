@@ -1,6 +1,7 @@
 //REQUIRED CLASS
 package project5;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.TreeSet;
@@ -12,7 +13,7 @@ public class Relation {
 	Schema schema;
 	TreeSet<Tuple> facts = new TreeSet<Tuple>();
 	Scheme scheme;
-	public Query query;
+	public SimplePredicate query;
 	
 	public Relation(Scheme scheme) {
 		this.scheme = scheme;
@@ -27,7 +28,28 @@ public class Relation {
 		facts.add(fact);
 	}
 	
-	public Relation project(Query query) {
+	public void processRule(Database db, Rule rule) {
+		Relation result = null;
+		ArrayList<Relation> _results = new ArrayList<Relation>();
+
+		for (SimplePredicate p : rule.predicateList) {
+			_results.add(new QueryResult(db, p).results);
+		}
+		
+		for (Relation r : _results) {
+			if (result == null) result = r;
+			else result = result.join(r);
+		}
+		result = result.project(rule.simplePredicate);
+		
+		
+	}
+	
+	public Relation join(Relation r) {
+		return r.clone();
+	}
+	
+	public Relation project(SimplePredicate query) {
 		Relation r = this.clone();
 		Iterator<Argument> qIter = query.arguments.iterator();
 		ListIterator<Token> sIter = r.schema.iterator();
@@ -44,7 +66,7 @@ public class Relation {
 		return r;
 	}
 	
-	public Relation select(Query query) {
+	public Relation select(SimplePredicate query) {
 		Relation r = this.clone();
 		Iterator<Tuple> tIter = r.facts.iterator();
 		while (tIter.hasNext()) {
@@ -55,7 +77,7 @@ public class Relation {
 		return r;
 	}
 	
-	public Relation rename(Query query) {
+	public Relation rename(SimplePredicate query) {
 		Relation r = this.clone();
 		r.schema.renameAttributes(query.arguments);
 		return r;
