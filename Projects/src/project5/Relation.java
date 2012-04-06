@@ -46,7 +46,12 @@ public class Relation {
 	}
 	
 	public Relation join(Relation r) {
-		return r.clone();
+		Relation result = this.clone();
+		for (Token col : result.schema) {
+			// Right here
+			r.schema.attributes.contains(col);
+		}
+		return result;
 	}
 	
 	public Relation project(SimplePredicate query) {

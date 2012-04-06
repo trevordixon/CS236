@@ -8,7 +8,7 @@ import project1.*;
 import project2.*;
 
 public class Schema implements Iterable<Token> {
-	private ArrayList<Token> attributes;
+	public ArrayList<Token> attributes;
 	
 	public Schema(Scheme scheme) {
 		attributes = scheme.attributes;
