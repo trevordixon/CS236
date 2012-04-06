@@ -7,7 +7,7 @@ import java.util.Iterator;
 import project1.*;
 
 public class ArgumentList implements Iterable<Argument> {
-	ArrayList<Argument> arguments;
+	public ArrayList<Argument> arguments;
 	
 	public ArgumentList(LexicalAnalyzer lex) throws ParseException {
 		arguments = new ArrayList<Argument>();
@@ -40,6 +40,6 @@ public class ArgumentList implements Iterable<Argument> {
 
 	@Override
 	public Iterator<Argument> iterator() {
-		return arguments.iterator();
+		return arguments.listIterator();
 	}
 }

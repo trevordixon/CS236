@@ -7,7 +7,7 @@ public class Token {
     final String value;
     final int lineNumber;
 
-    Token(TokenType type, String value, int lineNumber) {
+    public Token(TokenType type, String value, int lineNumber) {
         this.type = type;
         this.value = value;
         this.lineNumber = lineNumber;
@@ -40,5 +40,9 @@ public class Token {
     
     public Token clone() {
     	return new Token(type, new String(value), lineNumber);
+    }
+    
+    public boolean equals(Token t) {
+    	return value.equals(t.value);
     }
 }

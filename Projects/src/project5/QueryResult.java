@@ -8,6 +8,11 @@ public class QueryResult {
 	
 	public QueryResult(Database db, Query query) {
 		this.db = db;
+		
+		//System.out.println("QUERY: " + query);
+//		System.out.println(db.relations.get(query.name).facts);
+//		System.out.println(db.relations.get(query.name).clone().facts);
+		
 		Relation r = db.relations.get(query.name).rename(query).select(query).project(query);
 		r.query = query;
 		results = r;

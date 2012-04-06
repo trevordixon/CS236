@@ -34,6 +34,7 @@ public class Database {
 		for (QueryResult qr : queryResults) {
 			out += qr.toString();
 		}
+		out += "Done!\n";
 		return out;
 	}
 }

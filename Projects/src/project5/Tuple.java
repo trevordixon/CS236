@@ -9,12 +9,16 @@ import project1.*;
 import project2.*;
 
 public class Tuple implements Comparable<Tuple>, Iterable<Token> {
-	List<Token> parameters = new ArrayList<Token>();
+	public List<Token> parameters = new ArrayList<Token>();
 	Fact fact;
 	
 	public Tuple(Fact fact) {
 		this.fact = fact;
 		parameters = fact.facts;
+	}
+	
+	public Tuple(List<Token> parameters) {
+		this.parameters = parameters;
 	}
 	
 	public boolean matches(SimplePredicate query) {
@@ -49,7 +53,11 @@ public class Tuple implements Comparable<Tuple>, Iterable<Token> {
 	}
 	
 	public Tuple clone() {
-		return new Tuple(fact.clone());
+		List<Token> p = new ArrayList<Token>();
+		for (Token t : parameters) {
+			p.add(t.clone());
+		}
+		return new Tuple(p);
 	}
 	
 	public String toString() {
@@ -61,6 +69,14 @@ public class Tuple implements Comparable<Tuple>, Iterable<Token> {
 		return out;
 	}
 
+	public void reorderCols(ArrayList<Integer> cols) {
+		List<Token> p = new ArrayList<Token>();
+		for (int i : cols) {
+			p.add(parameters.get(i));
+		}
+		this.parameters = p;
+	}
+	
 	@Override
 	public Iterator<Token> iterator() {
 		return parameters.listIterator();

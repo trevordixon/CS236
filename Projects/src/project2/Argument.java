@@ -7,7 +7,7 @@ import project1.TokenType;
 public class Argument implements ParameterInterface, Comparable<Argument> {
 	Token argument;
 	
-	public Argument (LexicalAnalyzer lex) throws ParseException {
+	public Argument(LexicalAnalyzer lex) throws ParseException {
 		TokenType[] argTypes = {TokenType.ID, TokenType.STRING};
 		if (Check.tokenTypeBool(lex, argTypes)) {
 			argument = lex.currentToken();
@@ -17,6 +17,10 @@ public class Argument implements ParameterInterface, Comparable<Argument> {
 		}
 	}
 
+	public Argument(Token argument) {
+		this.argument = argument;
+	}
+	
 	public Token getToken() {
 		return argument;
 	}
@@ -36,5 +40,9 @@ public class Argument implements ParameterInterface, Comparable<Argument> {
 	@Override
 	public int compareTo(Argument a) {
 		return argument.getValue().compareTo(a.getValue());
+	}
+	
+	public boolean equals(Argument a) {
+		return a.argument.equals(this.argument);
 	}
 }
