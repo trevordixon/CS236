@@ -19,10 +19,21 @@ public class Database {
 		for (Fact fact : d.factList) {
 			relations.get(fact.name).addFact(fact);
 		}
+
+		boolean changed;
+		int passes = 0;
+		do {
+			++passes;
+			changed = false;
+			for (Rule rule : d.ruleList) {
+				Relation r = relations.get(rule.simplePredicate.name);
+				int size = r.size();
+				r.processRule(this, rule);
+				if (r.size() > size) changed = true;
+			}
+		} while (changed);
 		
-		for (Rule rule : d.ruleList) {
-			relations.get(rule.simplePredicate.name).processRule(this, rule);
-		}
+		System.out.println("Schemes populated after " + passes + " passes through the Rules.");
 		
 		for (Query query : d.queryList) {
 			queryResults.add(new QueryResult(this, query));

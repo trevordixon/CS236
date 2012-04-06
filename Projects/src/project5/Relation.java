@@ -25,6 +25,10 @@ public class Relation {
 		this.schema = schema;
 	}
 	
+	public int size() {
+		return facts.size();
+	}
+	
 	public void addFact(Fact fact) {
 		facts.add(new Tuple(fact));
 	}
@@ -38,7 +42,7 @@ public class Relation {
 		ArrayList<Relation> _results = new ArrayList<Relation>();
 
 		for (SimplePredicate p : rule.predicateList) {
-			_results.add(new QueryResult(db, p).results);
+			_results.add(new QueryResult(db, p.clone()).results);
 		}
 		
 		for (Relation r : _results) {

@@ -20,6 +20,10 @@ public class ArgumentList implements Iterable<Argument> {
 		}
 	}
 	
+	public ArgumentList(ArrayList<Argument> arguments) {
+		this.arguments = arguments;
+	}
+	
 	public ArgumentList(ParameterList parameters) {
 		arguments = new ArrayList<Argument>();
 		for (Parameter p : parameters) {
@@ -41,5 +45,13 @@ public class ArgumentList implements Iterable<Argument> {
 	@Override
 	public Iterator<Argument> iterator() {
 		return arguments.listIterator();
+	}
+	
+	public ArgumentList clone() {
+		ArrayList<Argument> a = new ArrayList<Argument>();
+		for (Argument arg : arguments) {
+			a.add(arg.clone());
+		}
+		return new ArgumentList(a);
 	}
 }

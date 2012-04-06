@@ -43,7 +43,7 @@ public class Project5
 	}
 
 	public static void main(String[] args) {
-		String[] _args = {"/home/tdixon/Documents/CS236/examples/ex50.txt"};
+		String[] _args = {"/home/tdixon/Documents/CS236/examples/ex52.txt"};
 		System.out.print(body(_args));
 	}
 }

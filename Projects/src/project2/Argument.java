@@ -45,4 +45,8 @@ public class Argument implements ParameterInterface, Comparable<Argument> {
 	public boolean equals(Argument a) {
 		return a.argument.equals(this.argument);
 	}
+	
+	public Argument clone() {
+		return new Argument(argument.clone());
+	}
 }

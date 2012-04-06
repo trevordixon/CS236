@@ -21,6 +21,11 @@ public class SimplePredicate {
 		lex.advance();
 	}
 	
+	public SimplePredicate(String name, ArgumentList arguments) {
+		this.name = name;
+		this.arguments = arguments;
+	}
+	
 	public SimplePredicate(String name, ParameterList parameters) {
 		this.name = name;
 		arguments = new ArgumentList(parameters);
@@ -32,5 +37,9 @@ public class SimplePredicate {
 		str += name + "(" + arguments.toString() + ")";
 		
 		return str;
+	}
+	
+	public SimplePredicate clone() {
+		return new SimplePredicate(new String(name), arguments.clone());
 	}
 }

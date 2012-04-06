@@ -31,7 +31,8 @@ public class Schema implements Iterable<Token> {
 	public Schema clone() {
 		ArrayList<Token> a = new ArrayList<Token>();
 		for (Token t : attributes) {
-			a.add(t.clone());
+			if (t == null) a.add(null);
+			else a.add(t.clone());
 		}
 		return new Schema(a);
 	}
