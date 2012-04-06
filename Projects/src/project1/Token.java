@@ -43,6 +43,7 @@ public class Token {
     }
     
     public boolean equals(Token t) {
+    	if (t == null) return false;
     	return value.equals(t.value);
     }
 }
